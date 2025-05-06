@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DAPE: Dual‑Stage Parameter‑Efficient Fine‑Tuning for Consistent Video Editing with Diffusion Models</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px 40px;
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+    }
+    h1 {
+      font-size: 2em;
+      margin-top: 0;
+    }
+    .authors {
+      margin: 20px 0;
+    }
+    .author {
+      margin-bottom: 8px;
+    }
+    .author span.name {
+      font-weight: 600;
+    }
+    .author span.affil {
+      font-style: italic;
+      color: #555;
+    }
+    .section-title {
+      font-weight: 700;
+      margin-top: 30px;
+      margin-bottom: 12px;
+      font-size: 1.1em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #444;
+    }
+    .abstract {
+      background: #f0f3f9;
+      padding: 15px 20px;
+      border-left: 4px solid #3f51b5;
+      border-radius: 4px;
+    }
+    .citation {
+      background: #fafafa;
+      padding: 15px 20px;
+      border-left: 4px solid #607d8b;
+      border-radius: 4px;
+      font-family: "Courier New", monospace;
+      font-size: 0.95em;
+    }
+    a {
+      color: #3f51b5;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .note {
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>DAPE: Dual‑Stage Parameter‑Efficient Fine‑Tuning for Consistent Video Editing with Diffusion Models</h1>
+
+    <div class="authors">
+      <div class="author"><span class="name">Junhao Xia</span> <span class="affil">(Tsinghua University, Beijing, China)</span> &nbsp;|&nbsp; <a href="mailto:xiajh23@mails.tsinghua.edu.cn">xiajh23@mails.tsinghua.edu.cn</a> <span class="note">— Homepage: <a href="https://github.com/XiaJH0313/DAPE.github.io">https://github.com/XiaJH0313/DAPE.github.io</a></span></div>
+
+      <div class="author"><span class="name">Chaoyang Zhang</span> <span class="affil">(Tsinghua University, Beijing, China)</span> &nbsp;|&nbsp; <a href="mailto:cy-zhang23@mails.tsinghua.edu.cn">cy-zhang23@mails.tsinghua.edu.cn</a></div>
+
+      <div class="author"><span class="name">Chengyang Zhou</span> <span class="affil">(Duke University, Durham, NC, USA)</span> &nbsp;|&nbsp; <a href="mailto:chengyang.zhou@duke.edu">chengyang.zhou@duke.edu</a></div>
+
+      <div class="author"><span class="name">Zhichang Wang</span> <span class="affil">(Peking University, Shenzhen, China)</span> &nbsp;|&nbsp; <a href="mailto:wzcc@stu.pku.edu.cn">wzcc@stu.pku.edu.cn</a></div>
+
+      <div class="author"><span class="name">Bochun Liu</span> <span class="affil">(Tsinghua University, Beijing, China)</span> &nbsp;|&nbsp; <a href="mailto:liu-bc23@mails.tsinghua.edu.cn">liu-bc23@mails.tsinghua.edu.cn</a></div>
+
+      <div class="author"><span class="name">Dongshuo Yin *</span> <span class="affil">(Tsinghua University, Beijing, China)</span> &nbsp;|&nbsp; <a href="mailto:yinds@mail.tsinghua.edu.cn">yinds@mail.tsinghua.edu.cn</a> <span class="note">— Corresponding author</span></div>
+    </div>
+
+    <div class="section-title">Abstract</div>
+    <p class="abstract">
+      Video generation based on diffusion models presents a challenging multimodal task, with video editing emerging as a pivotal direction in this field. Recent video editing approaches primarily fall into two categories: training‑required and training‑free methods. While training‑based methods incur high computational costs, training‑free alternatives often yield suboptimal performance. To address these limitations, we propose <strong>DAPE</strong>, a high‑quality yet cost‑effective two‑stage parameter‑efficient fine‑tuning (PEFT) framework for video editing. In the first stage, we design an efficient norm‑tuning method to enhance temporal consistency in generated videos. The second stage introduces a vision‑friendly adapter to improve visual quality. Additionally, we identify critical shortcomings in existing benchmarks, including limited category diversity, imbalanced object distribution, and inconsistent frame counts. To mitigate these issues, we curate a large dataset benchmark comprising 232 videos with rich annotations and six editing prompts, enabling objective and comprehensive evaluation of advanced methods. Extensive experiments on existing datasets (BalanceCC, LOVEU‑TGVE, RAVE) and our proposed benchmark demonstrate that DAPE significantly improves temporal coherence and text‑video alignment while outperforming previous state‑of‑the‑art approaches.
+    </p>
+
+    <div class="section-title">Citation</div>
+    <p class="citation">
+      Xia, J., Zhang, C., Zhou, C., Wang, Z., Liu, B., &amp; Yin, D. (2025). <i>DAPE: Dual‑Stage Parameter‑Efficient Fine‑Tuning for Consistent Video Editing with Diffusion Models</i>. Manuscript submitted for publication.
+    </p>
+  </div>
+</body>
+</html>
