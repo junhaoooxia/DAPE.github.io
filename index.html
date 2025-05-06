@@ -1,106 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DAPE: Dual‑Stage Parameter‑Efficient Fine‑Tuning for Consistent Video Editing with Diffusion Models</title>
+
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,600|Noto+Sans:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.3/css/academicons.min.css" />
+  
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+
+  <!-- Custom quick tweaks -->
   <style>
     body {
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f7fa;
+      font-family: "Google Sans", "Noto Sans", Arial, sans-serif;
+      background: #f8fafc;
       color: #333;
     }
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px 40px;
-      background: #fff;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      border-radius: 8px;
+    .publication-title {
+      font-family: "Google Sans", sans-serif;
     }
-    h1 {
-      font-size: 2em;
-      margin-top: 0;
+    .hero {
+      background: linear-gradient(135deg, #e3f2fd 0%, #fff 100%);
+      padding-bottom: 2rem;
     }
-    .authors {
-      margin: 20px 0;
+    .publication-links .button {
+      margin: 0.25rem;
     }
-    .author {
-      margin-bottom: 8px;
+    .section {
+      padding-top: 3rem;
     }
-    .author span.name {
-      font-weight: 600;
-    }
-    .author span.affil {
-      font-style: italic;
-      color: #555;
-    }
-    .section-title {
-      font-weight: 700;
-      margin-top: 30px;
-      margin-bottom: 12px;
-      font-size: 1.1em;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #444;
-    }
-    .abstract {
-      background: #f0f3f9;
-      padding: 15px 20px;
-      border-left: 4px solid #3f51b5;
+    pre code {
+      background: #f1f3f4;
       border-radius: 4px;
-    }
-    .citation {
-      background: #fafafa;
-      padding: 15px 20px;
-      border-left: 4px solid #607d8b;
-      border-radius: 4px;
-      font-family: "Courier New", monospace;
-      font-size: 0.95em;
-    }
-    a {
-      color: #3f51b5;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .note {
-      font-size: 0.9em;
-      color: #555;
+      padding: 1rem;
+      display: block;
+      overflow-x: auto;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>DAPE: Dual‑Stage Parameter‑Efficient Fine‑Tuning for Consistent Video Editing with Diffusion Models</h1>
 
-    <div class="authors">
-      <div class="author"><span class="name">Junhao Xia</span> <span class="affil">(Tsinghua University, Beijing, China)</span> &nbsp;|&nbsp; <a href="mailto:xiajh23@mails.tsinghua.edu.cn">xiajh23@mails.tsinghua.edu.cn</a> <span class="note">— Homepage: <a href="https://github.com/XiaJH0313/DAPE.github.io">https://github.com/XiaJH0313/DAPE.github.io</a></span></div>
+<!-- ================= Hero / Title ================= -->
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h1 class="title is-1 publication-title">DAPE</h1>
+      <h2 class="title is-3 publication-title">
+        Dual‑Stage Parameter‑Efficient Fine‑Tuning for Consistent Video Editing with Diffusion Models
+      </h2>
+      <div class="is-size-5">
+        <span class="author">Junhao Xia<sup>1,*</sup></span>,
+        <span class="author">Chaoyang Zhang<sup>1</sup></span>,
+        <span class="author">Chengyang Zhou<sup>2</sup></span>,
+        <span class="author">Zhichang Wang<sup>3</sup></span>,
+        <span class="author">Bochun Liu<sup>1</sup></span>,
+        <span class="author">Dongshuo Yin<sup>1,&#8224;</sup></span>
+      </div>
+      <div class="is-size-5">
+        <p><sup>1</sup>Tsinghua University, Beijing, China   <sup>2</sup>Duke University, NC, USA   <sup>3</sup>Peking University, Shenzhen, China</p>
+        <p><sup>*</sup>Homepage: <a href="https://github.com/XiaJH0313/DAPE.github.io">https://github.com/XiaJH0313/DAPE.github.io</a>   <sup>&#8224;</sup>Corresponding Author</p>
+      </div>
 
-      <div class="author"><span class="name">Chaoyang Zhang</span> <span class="affil">(Tsinghua University, Beijing, China)</span> &nbsp;|&nbsp; <a href="mailto:cy-zhang23@mails.tsinghua.edu.cn">cy-zhang23@mails.tsinghua.edu.cn</a></div>
-
-      <div class="author"><span class="name">Chengyang Zhou</span> <span class="affil">(Duke University, Durham, NC, USA)</span> &nbsp;|&nbsp; <a href="mailto:chengyang.zhou@duke.edu">chengyang.zhou@duke.edu</a></div>
-
-      <div class="author"><span class="name">Zhichang Wang</span> <span class="affil">(Peking University, Shenzhen, China)</span> &nbsp;|&nbsp; <a href="mailto:wzcc@stu.pku.edu.cn">wzcc@stu.pku.edu.cn</a></div>
-
-      <div class="author"><span class="name">Bochun Liu</span> <span class="affil">(Tsinghua University, Beijing, China)</span> &nbsp;|&nbsp; <a href="mailto:liu-bc23@mails.tsinghua.edu.cn">liu-bc23@mails.tsinghua.edu.cn</a></div>
-
-      <div class="author"><span class="name">Dongshuo Yin *</span> <span class="affil">(Tsinghua University, Beijing, China)</span> &nbsp;|&nbsp; <a href="mailto:yinds@mail.tsinghua.edu.cn">yinds@mail.tsinghua.edu.cn</a> <span class="note">— Corresponding author</span></div>
+      <!-- Quick Links -->
+      <div class="publication-links mt-4">
+        <a class="button is-rounded is-dark" href="https://github.com/XiaJH0313/DAPE" target="_blank">
+          <span class="icon"><i class="fab fa-github"></i></span><span>Code (GitHub)</span>
+        </a>
+        <a class="button is-rounded is-dark" href="https://arxiv.org/abs/2405.00000" target="_blank">
+          <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
+        </a>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="section-title">Abstract</div>
-    <p class="abstract">
-      Video generation based on diffusion models presents a challenging multimodal task, with video editing emerging as a pivotal direction in this field. Recent video editing approaches primarily fall into two categories: training‑required and training‑free methods. While training‑based methods incur high computational costs, training‑free alternatives often yield suboptimal performance. To address these limitations, we propose <strong>DAPE</strong>, a high‑quality yet cost‑effective two‑stage parameter‑efficient fine‑tuning (PEFT) framework for video editing. In the first stage, we design an efficient norm‑tuning method to enhance temporal consistency in generated videos. The second stage introduces a vision‑friendly adapter to improve visual quality. Additionally, we identify critical shortcomings in existing benchmarks, including limited category diversity, imbalanced object distribution, and inconsistent frame counts. To mitigate these issues, we curate a large dataset benchmark comprising 232 videos with rich annotations and six editing prompts, enabling objective and comprehensive evaluation of advanced methods. Extensive experiments on existing datasets (BalanceCC, LOVEU‑TGVE, RAVE) and our proposed benchmark demonstrate that DAPE significantly improves temporal coherence and text‑video alignment while outperforming previous state‑of‑the‑art approaches.
-    </p>
+<!-- ================ Abstract ================= -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Abstract</h2>
+    <div class="box content">
+      <p>
+        Video generation based on diffusion models presents a challenging multimodal task, with video editing emerging as a pivotal direction in this field. Recent video editing approaches primarily fall into two categories: training‑required and training‑free methods. While training‑based methods incur high computational costs, training‑free alternatives often yield suboptimal performance. To address these limitations, we propose <strong>DAPE</strong>, a high‑quality yet cost‑effective two‑stage parameter‑efficient fine‑tuning (PEFT) framework for video editing. In the first stage, we design an efficient norm‑tuning method to enhance temporal consistency in generated videos. The second stage introduces a vision‑friendly adapter to improve visual quality. Additionally, we identify critical shortcomings in existing benchmarks, including limited category diversity, imbalanced object distribution, and inconsistent frame counts. To mitigate these issues, we curate a large dataset benchmark comprising 232 videos with rich annotations and six editing prompts, enabling objective and comprehensive evaluation of advanced methods. Extensive experiments on existing datasets (BalanceCC, LOVEU‑TGVE, RAVE) and our proposed benchmark demonstrate that DAPE significantly improves temporal coherence and text‑video alignment while outperforming previous state‑of‑the‑art approaches.
+      </p>
+    </div>
+  </div>
+</section>
 
-    <div class="section-title">Citation</div>
-    <p class="citation">
-      Xia, J., Zhang, C., Zhou, C., Wang, Z., Liu, B., &amp; Yin, D. (2025). <i>DAPE: Dual‑Stage Parameter‑Efficient Fine‑Tuning for Consistent Video Editing with Diffusion Models</i>. Manuscript submitted for publication.
+<!-- ================ Citation ================== -->
+<section class="section" id="bibtex">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <pre><code>@article{xia2025dape,
+  title={DAPE: Dual-Stage Parameter-Efficient Fine-Tuning for Consistent Video Editing with Diffusion Models},
+  author={Xia, Junhao and Zhang, Chaoyang and Zhou, Chengyang and Wang, Zhichang and Liu, Bochun and Yin, Dongshuo},
+  journal={arXiv preprint arXiv:2405.00000},
+  year={2025}
+}</code></pre>
+  </div>
+</section>
+
+<!-- ================ Footer ==================== -->
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      Website template adapted from <a href="https://github.com/nerfies/nerfies.github.io" target="_blank">nerfies.github.io</a> under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>.
     </p>
   </div>
+</footer>
+
 </body>
 </html>
