@@ -41,14 +41,18 @@
       overflow-x: auto;
     }
     .video-caption {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       margin-top: 0.5rem;
-      line-height: 1.4;
+      line-height: 1.3;
     }
     .video-container {
-      border-radius: 8px;
+      border-radius: 6px;
       overflow: hidden;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin-bottom: 0.5rem;
+    }
+    .pair-divider {
+      border-right: 2px dashed #dbdbdb;
     }
   </style>
 </head>
@@ -61,7 +65,7 @@
       <h1 class="title is-3 publication-title">
         DAPE: Dual-Stage Parameter-Efficient Fine-Tuning for Consistent Video Editing with Diffusion Models
       </h1>
-      <div class="is-size-5">
+      <div class="is-size-5 mt-4">
         <span class="author">Junhao Xia<sup>1,*</sup></span>,
         <span class="author">Chaoyang Zhang<sup>1</sup></span>,
         <span class="author">Yecheng Zhang<sup>1</sup></span>,
@@ -70,9 +74,9 @@
         <span class="author">Bochun Liu<sup>1</sup></span>,
         <span class="author">Dongshuo Yin<sup>1,&#8224;</sup></span>
       </div>
-      <div class="is-size-5 mt-3">
-        <p class="is-size-6"><sup>1</sup>Tsinghua University, Beijing, China &nbsp;&nbsp; <sup>2</sup>Duke University, NC, USA &nbsp;&nbsp; <sup>3</sup>Peking University, Shenzhen, China</p>
-        <p class="is-size-6 mt-1"><sup>&#8224;</sup>Corresponding Author</p>
+      <div class="is-size-6 mt-3">
+        <p><sup>1</sup>Tsinghua University, Beijing, China &nbsp;&nbsp; <sup>2</sup>Duke University, NC, USA &nbsp;&nbsp; <sup>3</sup>Peking University, Shenzhen, China</p>
+        <p class="mt-1"><sup>&#8224;</sup>Corresponding Author</p>
       </div>
 
       <!-- Quick Links -->
@@ -94,63 +98,175 @@
     <h2 class="title is-3 has-text-centered">Abstract</h2>
     <div class="box content">
       <p>
-        Video generation based on diffusion models presents a challenging multimodal task, with video editing emerging as a pivotal direction in this field. Recent video editing approaches primarily fall into two categories: training‑required and training‑free methods. While training‑based methods incur high computational costs, training‑free alternatives often yield suboptimal performance. To address these limitations, we propose <strong>DAPE</strong>, a high‑quality yet cost‑effective two‑stage parameter‑efficient fine‑tuning (PEFT) framework for video editing. In the first stage, we design an efficient norm‑tuning method to enhance temporal consistency in generated videos. The second stage introduces a vision‑friendly adapter to improve visual quality. Additionally, we identify critical shortcomings in existing benchmarks, including limited category diversity, imbalanced object distribution, and inconsistent frame counts. To mitigate these issues, we curate a large dataset benchmark comprising 232 videos with rich annotations and editing prompts, enabling objective and comprehensive evaluation of advanced methods. Extensive experiments on existing datasets (BalanceCC, LOVEU‑TGVE, RAVE) and our proposed benchmark demonstrate that DAPE significantly improves temporal coherence and text‑video alignment while outperforming previous state‑of‑the‑art approaches.
+        Video generation based on diffusion models presents a challenging multimodal task, with video editing emerging as a pivotal direction in this field. Recent video editing approaches primarily fall into two categories: training‑required and training‑free methods. While training‑based methods incur high computational costs, training‑free alternatives often yield suboptimal performance. To address these limitations, we propose <strong>DAPE</strong>, a high‑quality yet cost‑effective dual-stage parameter‑efficient fine‑tuning (PEFT) framework for video editing. In the first stage, we design an efficient norm‑tuning method to enhance temporal consistency in generated videos. The second stage introduces a vision‑friendly adapter to improve visual quality. Additionally, we identify critical shortcomings in existing benchmarks, including limited category diversity, imbalanced object distribution, and inconsistent frame counts. To mitigate these issues, we propose a high-quality benchmark comprising high-quality videos, rich annotations, and editing prompts, enabling objective and comprehensive evaluation of video editing frameworks. Extensive experiments on widely-used benchmarks BalanceCC, loveu‑tgve, RAVE, and the proposed challenging benchmark demonstrate that DAPE outperforms previous state‑of‑the‑art approaches and effectively improves spatial and temporal coherence.
       </p>
     </div>
   </div>
 </section>
 
-<!-- ================ Video Results ================= -->
+<!-- ================ Video Results (4 Rows, 2 Pairs/Row) ================= -->
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Video Editing Results</h2>
-    <p class="has-text-centered mb-5">DAPE demonstrates superior performance across various editing scenarios, effectively maintaining spatial layout and temporal consistency while precisely following textual instructions.</p>
+    <p class="has-text-centered mb-6">Visual comparison of representative video editing scenarios, including overall style adjustment, subject modification, background alteration, and random edits combination.</p>
 
-    <!-- Row 1: Style Transfer -->
+    <!-- Row 1 -->
     <div class="columns is-centered">
-      <div class="column is-5">
-        <h3 class="title is-6 has-text-centered">Input Video</h3>
+      <!-- Pair 1 -->
+      <div class="column is-3">
+        <h4 class="title is-6 has-text-centered mb-2">Input</h4>
         <div class="video-container">
-          <!-- TODO: Replace src with your source video path -->
           <video controls autoplay loop muted playsinline width="100%">
-            <source src="static/videos/input_duck.mp4" type="video/mp4">
+            <source src="static/videos/input_1.mp4" type="video/mp4">
           </video>
         </div>
-        <p class="has-text-centered is-italic video-caption">"A duck swims gracefully in a calm pond, its reflections shimmering..."</p>
+        <p class="has-text-centered is-italic video-caption">"A duck swims gracefully in a calm pond..."</p>
       </div>
-      <div class="column is-5">
-        <h3 class="title is-6 has-text-centered">DAPE (Ours)</h3>
+      <div class="column is-3 pair-divider">
+        <h4 class="title is-6 has-text-centered mb-2">DAPE (Ours)</h4>
         <div class="video-container">
-          <!-- TODO: Replace src with your edited video path -->
           <video controls autoplay loop muted playsinline width="100%">
-            <source src="static/videos/output_duck.mp4" type="video/mp4">
+            <source src="static/videos/output_1.mp4" type="video/mp4">
           </video>
         </div>
-        <p class="has-text-centered has-text-info video-caption">"...in Van Gogh's starry night style."</p>
+        <p class="has-text-centered has-text-info video-caption">"...shimmering in Van Gogh's starry night style."</p>
       </div>
-    </div>
-
-    <!-- Row 2: Subject Modification -->
-    <div class="columns is-centered mt-4">
-      <div class="column is-5">
-        <h3 class="title is-6 has-text-centered">Input Video</h3>
+      
+      <!-- Pair 2 -->
+      <div class="column is-3">
+        <h4 class="title is-6 has-text-centered mb-2">Input</h4>
         <div class="video-container">
-          <!-- TODO: Replace src with your source video path -->
           <video controls autoplay loop muted playsinline width="100%">
-            <source src="static/videos/input_squirrel.mp4" type="video/mp4">
+            <source src="static/videos/input_2.mp4" type="video/mp4">
           </video>
         </div>
         <p class="has-text-centered is-italic video-caption">"A curious squirrel sits on a wooden surface..."</p>
       </div>
-      <div class="column is-5">
-        <h3 class="title is-6 has-text-centered">DAPE (Ours)</h3>
+      <div class="column is-3">
+        <h4 class="title is-6 has-text-centered mb-2">DAPE (Ours)</h4>
         <div class="video-container">
-          <!-- TODO: Replace src with your edited video path -->
           <video controls autoplay loop muted playsinline width="100%">
-            <source src="static/videos/output_cat.mp4" type="video/mp4">
+            <source src="static/videos/output_2.mp4" type="video/mp4">
           </video>
         </div>
         <p class="has-text-centered has-text-info video-caption">"A fluffy cat sits on a wooden surface..."</p>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="columns is-centered mt-4">
+      <!-- Pair 3 -->
+      <div class="column is-3">
+        <div class="video-container">
+          <video controls autoplay loop muted playsinline width="100%">
+            <source src="static/videos/input_3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-centered is-italic video-caption">"A boat sails on calm waters against a backdrop of majestic icebergs..."</p>
+      </div>
+      <div class="column is-3 pair-divider">
+        <div class="video-container">
+          <video controls autoplay loop muted playsinline width="100%">
+            <source src="static/videos/output_3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-centered has-text-info video-caption">"...lush green mountains and a vibrant sunset sky."</p>
+      </div>
+      
+      <!-- Pair 4 -->
+      <div class="column is-3">
+        <div class="video-container">
+          <video controls autoplay loop muted playsinline width="100%">
+            <source src="static/videos/input_4.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-centered is-italic video-caption">"A bald eagle with a white head and yellow beak stares intently..."</p>
+      </div>
+      <div class="column is-3">
+        <div class="video-container">
+          <video controls autoplay loop muted playsinline width="100%">
+            <source src="static/videos/output_4.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-centered has-text-info video-caption">"...a glowing cyberpunk cityscape, with neon-green accents."</p>
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="columns is-centered mt-4">
+      <!-- Pair 5 -->
+      <div class="column is-3">
+        <div class="video-container">
+          <video controls autoplay loop muted playsinline width="100%">
+            <source src="static/videos/input_5.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-centered is-italic video-caption">"[Original caption placeholder]"</p>
+      </div>
+      <div class="column is-3 pair-divider">
+        <div class="video-container">
+          <video controls autoplay loop muted playsinline width="100%">
+            <source src="static/videos/output_5.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-centered has-text-info video-caption">"[Target editing prompt placeholder]"</p>
+      </div>
+      
+      <!-- Pair 6 -->
+      <div class="column is-3">
+        <div class="video-container">
+          <video controls autoplay loop muted playsinline width="100%">
+            <source src="static/videos/input_6.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-centered is-italic video-caption">"[Original caption placeholder]"</p>
+      </div>
+      <div class="column is-3">
+        <div class="video-container">
+          <video controls autoplay loop muted playsinline width="100%">
+            <source src="static/videos/output_6.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-centered has-text-info video-caption">"[Target editing prompt placeholder]"</p>
+      </div>
+    </div>
+
+    <!-- Row 4 -->
+    <div class="columns is-centered mt-4">
+      <!-- Pair 7 -->
+      <div class="column is-3">
+        <div class="video-container">
+          <video controls autoplay loop muted playsinline width="100%">
+            <source src="static/videos/input_7.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-centered is-italic video-caption">"[Original caption placeholder]"</p>
+      </div>
+      <div class="column is-3 pair-divider">
+        <div class="video-container">
+          <video controls autoplay loop muted playsinline width="100%">
+            <source src="static/videos/output_7.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-centered has-text-info video-caption">"[Target editing prompt placeholder]"</p>
+      </div>
+      
+      <!-- Pair 8 -->
+      <div class="column is-3">
+        <div class="video-container">
+          <video controls autoplay loop muted playsinline width="100%">
+            <source src="static/videos/input_8.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-centered is-italic video-caption">"[Original caption placeholder]"</p>
+      </div>
+      <div class="column is-3">
+        <div class="video-container">
+          <video controls autoplay loop muted playsinline width="100%">
+            <source src="static/videos/output_8.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-centered has-text-info video-caption">"[Target editing prompt placeholder]"</p>
       </div>
     </div>
   </div>
@@ -160,18 +276,14 @@
 <section class="section has-background-light">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Methodology</h2>
-    <div class="has-text-centered mb-5">
-      <!-- TODO: Save your Figure 2 as pipeline.jpg in static/images/ -->
-      <img src="static/images/pipeline.pdf" alt="DAPE Pipeline Architecture" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <div class="has-text-centered mb-4">
+      <!-- Save your Figure 2 as pipeline.jpg in static/images/ -->
+      <img src="static/images/pipeline.png" alt="Overall of DAPE Pipeline" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
     </div>
     <div class="content">
-      <p>
-        DAPE adopts a dual-stage paradigm that decouples the learning of temporal and visual features to mitigate gradient conflicts between normalization and adapter modules:
+      <p class="has-text-justified">
+        <strong>Figure 2. Overall of DAPE.</strong> DAPE is a generative model fine-tuning approach specifically designed for video editing tasks. In the first stage, we propose a novel norm-based fine-tuning method to enhance temporal consistency in editing results. In the second stage, we improve the visual quality of editing results through a carefully designed adapter fine-tuning approach. 
       </p>
-      <ul>
-        <li><strong>Stage I (Adjustable Norm-tuning):</strong> We first exclusively fine-tune the normalization layer parameters with learnable scaling factors. This stage constraints the feature distribution to establish a robust, temporally coherent video representation and eliminate flickering.</li>
-        <li><strong>Stage II (Visual Adapter-tuning):</strong> We then freeze the normalization layers and insert a lightweight visual adapter with depth-wise convolutions. By intervening specifically at the first cross-attention block of the U-Net decoder, DAPE refines high-level semantic concepts (e.g., style, identity) without disrupting the structural coherence preserved in shallower layers.</li>
-      </ul>
     </div>
   </div>
 </section>
@@ -180,19 +292,16 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">The DAPE Benchmark</h2>
-    <div class="content">
-      <p>
-        Existing benchmarks often suffer from low visual quality, inconsistent frame lengths, and limited content diversity. To enable rigorous and objective assessment, we introduce the <strong>DAPE Benchmark</strong>:
-      </p>
-      <ul>
-        <li><strong>High-Quality Data:</strong> Curated 232 high-resolution videos standardizing spatial and temporal lengths.</li>
-        <li><strong>Rich Annotations:</strong> Each video includes multi-dimensional semantic annotations (subject, background, event categories, and complexity).</li>
-        <li><strong>Diverse Prompts:</strong> 6 distinct editing prompts per video generated via Human-in-the-Loop pipelines using state-of-the-art LLMs.</li>
-      </ul>
+    <div class="has-text-centered mt-4 mb-4">
+      <!-- Save your Figure 4 as dataset.jpg in static/images/ -->
+      <img src="static/images/dataset.png" alt="DAPE Benchmark Statistics" style="max-width: 90%; border-radius: 8px;">
     </div>
-    <div class="has-text-centered mt-4">
-      <!-- TODO: Save your Figure 4 as dataset.jpg in static/images/ -->
-      <img src="static/images/dataset.pdf" alt="DAPE Benchmark Statistics" style="max-width: 90%; border-radius: 8px;">
+    <div class="content">
+      <p class="has-text-justified">
+        <strong>Figure 4. Dataset statistics.</strong> Distributions of the DAPE Dataset across six semantic dimensions: category and complexity for subject, background, and event. 
+        <br><br>
+        The DAPE Dataset covers diverse semantic categories: "people" (33%) and "animal" (18%) are most common, while "artifact," "environment," "vehicle," and "food" constitute the remainder, reflecting the dominance of human-centric content. For background and events, distributions are more balanced, with indoor scenes (34%) and daily events (44%) most frequent, consistent with everyday user-generated videos. Each component is further assigned a three-level complexity score (simple, moderate, complex), enabling sufficient and objective assessment of video editing methods.
+      </p>
     </div>
   </div>
 </section>
