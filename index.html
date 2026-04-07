@@ -63,8 +63,14 @@
   <div class="hero-body">
     <div class="container is-max-desktop has-text-centered">
       <h1 class="title is-3 publication-title">
-        DAPE: Dual-Stage Parameter-Efficient Fine-Tuning for Consistent Video Editing with Diffusion Models
+        Dual-Stage Parameter-Efficient Fine-Tuning for Consistent Spatial and Temporal Representation
       </h1>
+      
+      <!-- 这里是新加的录用信息 -->
+      <h3 class="title is-4 has-text-weight-semibold has-text-grey mt-2 mb-4">
+        CVPR 2026 Findings
+      </h3>
+
       <div class="is-size-5 mt-4">
         <span class="author">Junhao Xia<sup>1,*</sup></span>,
         <span class="author">Chaoyang Zhang<sup>1</sup></span>,
@@ -75,7 +81,7 @@
         <span class="author">Dongshuo Yin<sup>1,&#8224;</sup></span>
       </div>
       <div class="is-size-6 mt-3">
-        <p><sup>1</sup>Tsinghua University, Beijing, China &nbsp;&nbsp; <sup>2</sup>Duke University, NC, USA &nbsp;&nbsp; <sup>3</sup>Peking University, Shenzhen, China</p>
+        <p><sup>1</sup>Tsinghua University &nbsp;&nbsp; <sup>2</sup>Duke University &nbsp;&nbsp; <sup>3</sup>Peking University</p>
         <p class="mt-1"><sup>&#8224;</sup>Corresponding Author</p>
       </div>
 
@@ -92,13 +98,12 @@
   </div>
 </section>
 
-<!-- ================ Abstract ================= -->
-<section class="section">
+<!-- ================ Brief Intro ================= -->
+<section class="section pb-0">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Abstract</h2>
-    <div class="box content">
-      <p>
-        Video generation based on diffusion models presents a challenging multimodal task, with video editing emerging as a pivotal direction in this field. Recent video editing approaches primarily fall into two categories: training‑required and training‑free methods. While training‑based methods incur high computational costs, training‑free alternatives often yield suboptimal performance. To address these limitations, we propose <strong>DAPE</strong>, a high‑quality yet cost‑effective dual-stage parameter‑efficient fine‑tuning (PEFT) framework for video editing. In the first stage, we design an efficient norm‑tuning method to enhance temporal consistency in generated videos. The second stage introduces a vision‑friendly adapter to improve visual quality. Additionally, we identify critical shortcomings in existing benchmarks, including limited category diversity, imbalanced object distribution, and inconsistent frame counts. To mitigate these issues, we propose a high-quality benchmark comprising high-quality videos, rich annotations, and editing prompts, enabling objective and comprehensive evaluation of video editing frameworks. Extensive experiments on widely-used benchmarks BalanceCC, loveu‑tgve, RAVE, and the proposed challenging benchmark demonstrate that DAPE outperforms previous state‑of‑the‑art approaches and effectively improves spatial and temporal coherence.
+    <div class="content has-text-centered">
+      <p class="is-size-5" style="line-height: 1.6; font-family: 'Google Sans', sans-serif;">
+        <strong>DAPE</strong> is a dual-stage parameter-efficient fine-tuning framework designed for high-quality and cost-effective video editing. By decoupling the learning process into efficient norm-tuning for temporal consistency and a vision-friendly adapter for visual enhancement, DAPE achieves state-of-the-art spatial and temporal coherence.
       </p>
     </div>
   </div>
@@ -107,134 +112,158 @@
 <!-- ================ Video Results (4 Rows, 2 Pairs/Row) ================= -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Video Editing Results</h2>
-    <p class="has-text-centered mb-6">Visual comparison of representative video editing scenarios, including overall style adjustment, subject modification, background alteration, and random edits combination.</p>
+    <!-- <h2 class="title is-3 has-text-centered">Video Editing Results</h2>
+    <p class="has-text-centered mb-6">Visual comparison of representative video editing scenarios, including overall style adjustment, subject modification, background alteration, and random edits combination.</p> -->
 
     <!-- Row 1 -->
     <div class="columns is-centered">
       <!-- Pair 1 -->
-      <div class="column is-3">
-        <h4 class="title is-6 has-text-centered mb-2">Input</h4>
-        <div class="video-container">
-          <img src="static/videos/input_1.gif" alt="Input 1" style="width: 100%; display: block;">
+      <div class="column is-6 pair-divider">
+        <div class="columns is-mobile mb-1">
+          <div class="column is-6">
+            <h4 class="title is-6 has-text-centered mb-2">Input</h4>
+            <div class="video-container">
+              <img src="static/videos/input_1.gif" alt="Input 1" style="width: 100%; display: block;">
+            </div>
+          </div>
+          <div class="column is-6">
+            <h4 class="title is-6 has-text-centered mb-2">Output</h4>
+            <div class="video-container">
+              <img src="static/videos/output_1.gif" alt="Output 1" style="width: 100%; display: block;">
+            </div>
+          </div>
         </div>
-        <p class="has-text-centered is-italic video-caption">"A duck swims gracefully in a calm pond..."</p>
-      </div>
-      <div class="column is-3 pair-divider">
-        <h4 class="title is-6 has-text-centered mb-2">Output</h4>
-        <div class="video-container">
-          <img src="static/videos/output_1.gif" alt="Output 1" style="width: 100%; display: block;">
-        </div>
-        <p class="has-text-centered has-text-info video-caption">"...shimmering in Van Gogh's starry night style."</p>
+        <p class="has-text-centered is-italic video-caption px-4">"A duck swims gracefully in a calm pond, its reflections shimmering in <span class="has-text-info">Van Gogh's starry night style.</span>"</p>
       </div>
       
       <!-- Pair 2 -->
-      <div class="column is-3">
-        <h4 class="title is-6 has-text-centered mb-2">Input</h4>
-        <div class="video-container">
-          <img src="static/videos/input_2.gif" alt="Input 2" style="width: 100%; display: block;">
+      <div class="column is-6">
+        <div class="columns is-mobile mb-1">
+          <div class="column is-6">
+            <h4 class="title is-6 has-text-centered mb-2">Input</h4>
+            <div class="video-container">
+              <img src="static/videos/input_2.gif" alt="Input 2" style="width: 100%; display: block;">
+            </div>
+          </div>
+          <div class="column is-6">
+            <h4 class="title is-6 has-text-centered mb-2">Output</h4>
+            <div class="video-container">
+              <img src="static/videos/output_2.gif" alt="Output 2" style="width: 100%; display: block;">
+            </div>
+          </div>
         </div>
-        <p class="has-text-centered is-italic video-caption">"A curious squirrel sits on a wooden surface..."</p>
-      </div>
-      <div class="column is-3">
-        <h4 class="title is-6 has-text-centered mb-2">Output</h4>
-        <div class="video-container">
-          <img src="static/videos/output_2.gif" alt="Output 2" style="width: 100%; display: block;">
-        </div>
-        <p class="has-text-centered has-text-info video-caption">"A fluffy cat sits on a wooden surface..."</p>
+        <p class="has-text-centered is-italic video-caption px-4">"A boat sails on calm waters, with passengers aboard, against a backdrop of <span class="has-text-info">lush mountains and a vibrant sunset sky.</span>"</p>
       </div>
     </div>
 
     <!-- Row 2 -->
     <div class="columns is-centered mt-4">
       <!-- Pair 3 -->
-      <div class="column is-3">
-        <div class="video-container">
-          <img src="static/videos/input_3.gif" alt="Input 3" style="width: 100%; display: block;">
+      <div class="column is-6 pair-divider">
+        <div class="columns is-mobile mb-1">
+          <div class="column is-6">
+            <div class="video-container">
+              <img src="static/videos/input_3.gif" alt="Input 3" style="width: 100%; display: block;">
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <img src="static/videos/output_3.gif" alt="Output 3" style="width: 100%; display: block;">
+            </div>
+          </div>
         </div>
-        <p class="has-text-centered is-italic video-caption">"A boat sails on calm waters against a backdrop of majestic icebergs..."</p>
-      </div>
-      <div class="column is-3 pair-divider">
-        <div class="video-container">
-          <img src="static/videos/output_3.gif" alt="Output 3" style="width: 100%; display: block;">
-        </div>
-        <p class="has-text-centered has-text-info video-caption">"...lush green mountains and a vibrant sunset sky."</p>
+        <p class="has-text-centered is-italic video-caption px-4">"A fish swims in a <span class="has-text-info">vibrant ocean reef filled with colorful corals and schools of fish.</span>"</p>
       </div>
       
       <!-- Pair 4 -->
-      <div class="column is-3">
-        <div class="video-container">
-          <img src="static/videos/input_4.gif" alt="Input 4" style="width: 100%; display: block;">
+      <div class="column is-6">
+        <div class="columns is-mobile mb-1">
+          <div class="column is-6">
+            <div class="video-container">
+              <img src="static/videos/input_4.gif" alt="Input 4" style="width: 100%; display: block;">
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <img src="static/videos/output_4.gif" alt="Output 4" style="width: 100%; display: block;">
+            </div>
+          </div>
         </div>
-        <p class="has-text-centered is-italic video-caption">"A bald eagle with a white head and yellow beak stares intently..."</p>
-      </div>
-      <div class="column is-3">
-        <div class="video-container">
-          <img src="static/videos/output_4.gif" alt="Output 4" style="width: 100%; display: block;">
-        </div>
-        <p class="has-text-centered has-text-info video-caption">"...a glowing cyberpunk cityscape, with neon-green accents."</p>
+        <p class="has-text-centered is-italic video-caption px-4">"A <span class="has-text-info">curious squirrel</span> sits on a wooden surface, looking around curiously under a clear blue sky.</span>"</p>
       </div>
     </div>
 
     <!-- Row 3 -->
     <div class="columns is-centered mt-4">
       <!-- Pair 5 -->
-      <div class="column is-3">
-        <div class="video-container">
-          <img src="static/videos/input_5.gif" alt="Input 5" style="width: 100%; display: block;">
+      <div class="column is-6 pair-divider">
+        <div class="columns is-mobile mb-1">
+          <div class="column is-6">
+            <div class="video-container">
+              <img src="static/videos/input_5.gif" alt="Input 5" style="width: 100%; display: block;">
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <img src="static/videos/output_5.gif" alt="Output 5" style="width: 100%; display: block;">
+            </div>
+          </div>
         </div>
-        <p class="has-text-centered is-italic video-caption">"[Original caption placeholder]"</p>
-      </div>
-      <div class="column is-3 pair-divider">
-        <div class="video-container">
-          <img src="static/videos/output_5.gif" alt="Output 5" style="width: 100%; display: block;">
-        </div>
-        <p class="has-text-centered has-text-info video-caption">"[Target editing prompt placeholder]"</p>
+        <p class="has-text-centered is-italic video-caption px-4">"Snow-capped mountains under a <span class="has-text-info">glowing purple aurora</span>, clouds swirling like vibrant strokes in an <span class="has-text-info">impressionist painting.</span>"</p>
       </div>
       
       <!-- Pair 6 -->
-      <div class="column is-3">
-        <div class="video-container">
-          <img src="static/videos/input_6.gif" alt="Input 6" style="width: 100%; display: block;">
+      <div class="column is-6">
+        <div class="columns is-mobile mb-1">
+          <div class="column is-6">
+            <div class="video-container">
+              <img src="static/videos/input_6.gif" alt="Input 6" style="width: 100%; display: block;">
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <img src="static/videos/output_6.gif" alt="Output 6" style="width: 100%; display: block;">
+            </div>
+          </div>
         </div>
-        <p class="has-text-centered is-italic video-caption">"[Original caption placeholder]"</p>
-      </div>
-      <div class="column is-3">
-        <div class="video-container">
-          <img src="static/videos/output_6.gif" alt="Output 6" style="width: 100%; display: block;">
-        </div>
-        <p class="has-text-centered has-text-info video-caption">"[Target editing prompt placeholder]"</p>
+        <p class="has-text-centered is-italic video-caption px-4">"A bald eagle with a white head and yellow beak stares intently, set against a <span class="has-text-info">glowing cyberpunk cityscape with neon-green accents.</span>"</p>
       </div>
     </div>
 
     <!-- Row 4 -->
     <div class="columns is-centered mt-4">
       <!-- Pair 7 -->
-      <div class="column is-3">
-        <div class="video-container">
-          <img src="static/videos/input_7.gif" alt="Input 7" style="width: 100%; display: block;">
+      <div class="column is-6 pair-divider">
+        <div class="columns is-mobile mb-1">
+          <div class="column is-6">
+            <div class="video-container">
+              <img src="static/videos/input_7.gif" alt="Input 7" style="width: 100%; display: block;">
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <img src="static/videos/output_7.gif" alt="Output 7" style="width: 100%; display: block;">
+            </div>
+          </div>
         </div>
-        <p class="has-text-centered is-italic video-caption">"[Original caption placeholder]"</p>
-      </div>
-      <div class="column is-3 pair-divider">
-        <div class="video-container">
-          <img src="static/videos/output_7.gif" alt="Output 7" style="width: 100%; display: block;">
-        </div>
-        <p class="has-text-centered has-text-info video-caption">"[Target editing prompt placeholder]"</p>
+        <p class="has-text-centered is-italic video-caption px-4">"A motorbike in <span class="has-text-info">watercolor style</span>"</p>
       </div>
       
       <!-- Pair 8 -->
-      <div class="column is-3">
-        <div class="video-container">
-          <img src="static/videos/input_8.gif" alt="Input 8" style="width: 100%; display: block;">
+      <div class="column is-6">
+        <div class="columns is-mobile mb-1">
+          <div class="column is-6">
+            <div class="video-container">
+              <img src="static/videos/input_8.gif" alt="Input 8" style="width: 100%; display: block;">
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="video-container">
+              <img src="static/videos/output_8.gif" alt="Output 8" style="width: 100%; display: block;">
+            </div>
+          </div>
         </div>
-        <p class="has-text-centered is-italic video-caption">"[Original caption placeholder]"</p>
-      </div>
-      <div class="column is-3">
-        <div class="video-container">
-          <img src="static/videos/output_8.gif" alt="Output 8" style="width: 100%; display: block;">
-        </div>
-        <p class="has-text-centered has-text-info video-caption">"[Target editing prompt placeholder]"</p>
+        <p class="has-text-centered is-italic video-caption px-4">"A <span class="has-text-info">marble sculpture</span> of a woman running"</p>
       </div>
     </div>
   </div>
@@ -260,92 +289,10 @@
 <!-- ================ Comparison with State-of-the-Art ================= -->
 <section class="section has-background-white">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Comparison with State-of-the-Art Methods</h2>
-    <p class="has-text-centered mb-6">Qualitative comparison of DAPE against existing baseline methods.</p>
+    <h2 class="title is-3 has-text-centered">Comparison</h2>
+    <p class="has-text-centered mb-6">Comparison of DAPE against existing baseline methods.</p>
 
     <!-- ================= Group 1 ================= -->
-    <div class="box mb-6">
-      <p class="has-text-centered mb-4">
-        <strong>Prompt:</strong> <span class="is-italic">"A <span class="has-text-danger">red sports car</span> drives along a winding road surrounded by lush green trees and grassy fields."</span>
-      </p>
-      <!-- Row 1 -->
-      <div class="columns is-centered">
-        <div class="column is-3">
-          <h4 class="title is-7 has-text-centered mb-2">Input</h4>
-          <div class="video-container"><img src="static/videos/comp1_input.gif" alt="Input" style="width: 100%; display: block;"></div>
-        </div>
-        <div class="column is-3">
-          <h4 class="title is-7 has-text-centered mb-2">TAV</h4>
-          <div class="video-container"><img src="static/videos/comp1_tav.gif" alt="TAV" style="width: 100%; display: block;"></div>
-        </div>
-        <div class="column is-3">
-          <h4 class="title is-7 has-text-centered mb-2">CAMEL</h4>
-          <div class="video-container"><img src="static/videos/comp1_camel.gif" alt="CAMEL" style="width: 100%; display: block;"></div>
-        </div>
-        <div class="column is-3">
-          <h4 class="title is-7 has-text-centered mb-2">SimDA</h4>
-          <div class="video-container"><img src="static/videos/comp1_simda.gif" alt="SimDA" style="width: 100%; display: block;"></div>
-        </div>
-      </div>
-      <!-- Row 2 -->
-      <div class="columns is-centered">
-        <div class="column is-3">
-          <h4 class="title is-7 has-text-centered mb-2">RAVE</h4>
-          <div class="video-container"><img src="static/videos/comp1_rave.gif" alt="RAVE" style="width: 100%; display: block;"></div>
-        </div>
-        <div class="column is-3">
-          <h4 class="title is-7 has-text-centered mb-2">CCEdit</h4>
-          <div class="video-container"><img src="static/videos/comp1_ccedit.gif" alt="CCEdit" style="width: 100%; display: block;"></div>
-        </div>
-        <div class="column is-3">
-          <h4 class="title is-7 has-text-centered mb-2 has-text-info">DAPE (Ours)</h4>
-          <div class="video-container" style="border: 2px solid #3273dc;"><img src="static/videos/comp1_ours.gif" alt="Ours" style="width: 100%; display: block;"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= Group 2 ================= -->
-    <div class="box mb-6">
-      <p class="has-text-centered mb-4">
-        <strong>Prompt:</strong> <span class="is-italic">"A child runs towards a kneeling adult, who embraces them warmly at sunset, <span class="has-text-danger">painted in the style of a Van Gogh landscape</span>."</span>
-      </p>
-      <!-- Row 1 -->
-      <div class="columns is-centered">
-        <div class="column is-3">
-          <h4 class="title is-7 has-text-centered mb-2">Input</h4>
-          <div class="video-container"><img src="static/videos/comp2_input.gif" alt="Input" style="width: 100%; display: block;"></div>
-        </div>
-        <div class="column is-3">
-          <h4 class="title is-7 has-text-centered mb-2">TAV</h4>
-          <div class="video-container"><img src="static/videos/comp2_tav.gif" alt="TAV" style="width: 100%; display: block;"></div>
-        </div>
-        <div class="column is-3">
-          <h4 class="title is-7 has-text-centered mb-2">CAMEL</h4>
-          <div class="video-container"><img src="static/videos/comp2_camel.gif" alt="CAMEL" style="width: 100%; display: block;"></div>
-        </div>
-        <div class="column is-3">
-          <h4 class="title is-7 has-text-centered mb-2">SimDA</h4>
-          <div class="video-container"><img src="static/videos/comp2_simda.gif" alt="SimDA" style="width: 100%; display: block;"></div>
-        </div>
-      </div>
-      <!-- Row 2 -->
-      <div class="columns is-centered">
-        <div class="column is-3">
-          <h4 class="title is-7 has-text-centered mb-2">RAVE</h4>
-          <div class="video-container"><img src="static/videos/comp2_rave.gif" alt="RAVE" style="width: 100%; display: block;"></div>
-        </div>
-        <div class="column is-3">
-          <h4 class="title is-7 has-text-centered mb-2">CCEdit</h4>
-          <div class="video-container"><img src="static/videos/comp2_ccedit.gif" alt="CCEdit" style="width: 100%; display: block;"></div>
-        </div>
-        <div class="column is-3">
-          <h4 class="title is-7 has-text-centered mb-2 has-text-info">DAPE (Ours)</h4>
-          <div class="video-container" style="border: 2px solid #3273dc;"><img src="static/videos/comp2_ours.gif" alt="Ours" style="width: 100%; display: block;"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= Group 3 ================= -->
     <div class="box">
       <p class="has-text-centered mb-4">
         <strong>Prompt:</strong> <span class="is-italic">"A <span class="has-text-danger">rabbit</span> nibbles on a leaf, its soft ears visible, against a blurred natural background."</span>
@@ -354,34 +301,159 @@
       <div class="columns is-centered">
         <div class="column is-3">
           <h4 class="title is-7 has-text-centered mb-2">Input</h4>
-          <div class="video-container"><img src="static/videos/comp3_input.gif" alt="Input" style="width: 100%; display: block;"></div>
+          <div class="video-container"><img src="static/videos/rabbit_input.gif" alt="Input" style="width: 100%; display: block;"></div>
         </div>
         <div class="column is-3">
           <h4 class="title is-7 has-text-centered mb-2">TAV</h4>
-          <div class="video-container"><img src="static/videos/comp3_tav.gif" alt="TAV" style="width: 100%; display: block;"></div>
+          <div class="video-container"><img src="static/videos/rabbit_tav.gif" alt="TAV" style="width: 100%; display: block;"></div>
         </div>
         <div class="column is-3">
           <h4 class="title is-7 has-text-centered mb-2">CAMEL</h4>
-          <div class="video-container"><img src="static/videos/comp3_camel.gif" alt="CAMEL" style="width: 100%; display: block;"></div>
+          <div class="video-container"><img src="static/videos/rabbit_camel.gif" alt="CAMEL" style="width: 100%; display: block;"></div>
         </div>
         <div class="column is-3">
           <h4 class="title is-7 has-text-centered mb-2">SimDA</h4>
-          <div class="video-container"><img src="static/videos/comp3_simda.gif" alt="SimDA" style="width: 100%; display: block;"></div>
+          <div class="video-container"><img src="static/videos/rabbit_simda.gif" alt="SimDA" style="width: 100%; display: block;"></div>
         </div>
       </div>
       <!-- Row 2 -->
       <div class="columns is-centered">
         <div class="column is-3">
           <h4 class="title is-7 has-text-centered mb-2">RAVE</h4>
-          <div class="video-container"><img src="static/videos/comp3_rave.gif" alt="RAVE" style="width: 100%; display: block;"></div>
+          <div class="video-container"><img src="static/videos/rabbit_rave.gif" alt="RAVE" style="width: 100%; display: block;"></div>
         </div>
         <div class="column is-3">
           <h4 class="title is-7 has-text-centered mb-2">CCEdit</h4>
-          <div class="video-container"><img src="static/videos/comp3_ccedit.gif" alt="CCEdit" style="width: 100%; display: block;"></div>
+          <div class="video-container"><img src="static/videos/rabbit_ccedit.gif" alt="CCEdit" style="width: 100%; display: block;"></div>
         </div>
         <div class="column is-3">
           <h4 class="title is-7 has-text-centered mb-2 has-text-info">DAPE (Ours)</h4>
-          <div class="video-container" style="border: 2px solid #3273dc;"><img src="static/videos/comp3_ours.gif" alt="Ours" style="width: 100%; display: block;"></div>
+          <div class="video-container" style="border: 2px solid #3273dc;"><img src="static/videos/rabbit_ours.gif" alt="Ours" style="width: 100%; display: block;"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ================= Group 2 ================= -->
+    <div class="box mb-6">
+      <p class="has-text-centered mb-4">
+        <strong>Prompt:</strong> <span class="is-italic">"A <span class="has-text-danger">red sports car</span> drives along a winding road surrounded by lush green trees and grassy fields."</span>
+      </p>
+      <!-- Row 1 -->
+      <div class="columns is-centered">
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">Input</h4>
+          <div class="video-container"><img src="static/videos/redcar_input.gif" alt="Input" style="width: 100%; display: block;"></div>
+        </div>
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">TAV</h4>
+          <div class="video-container"><img src="static/videos/redcar_tav.gif" alt="TAV" style="width: 100%; display: block;"></div>
+        </div>
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">CAMEL</h4>
+          <div class="video-container"><img src="static/videos/redcar_camel.gif" alt="CAMEL" style="width: 100%; display: block;"></div>
+        </div>
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">SimDA</h4>
+          <div class="video-container"><img src="static/videos/redcar_simda.gif" alt="SimDA" style="width: 100%; display: block;"></div>
+        </div>
+      </div>
+      <!-- Row 2 -->
+      <div class="columns is-centered">
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">RAVE</h4>
+          <div class="video-container"><img src="static/videos/redcar_rave.gif" alt="RAVE" style="width: 100%; display: block;"></div>
+        </div>
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">CCEdit</h4>
+          <div class="video-container"><img src="static/videos/redcar_ccedit.gif" alt="CCEdit" style="width: 100%; display: block;"></div>
+        </div>
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2 has-text-info">DAPE (Ours)</h4>
+          <div class="video-container" style="border: 2px solid #3273dc;"><img src="static/videos/redcar_ours.gif" alt="Ours" style="width: 100%; display: block;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= Group 3 ================= -->
+    <div class="box mb-6">
+      <p class="has-text-centered mb-4">
+        <strong>Prompt:</strong> <span class="is-italic">"A child runs towards a kneeling adult, who embraces them warmly at sunset, <span class="has-text-danger">painted in the style of a Van Gogh landscape</span>."</span>
+      </p>
+      <!-- Row 1 -->
+      <div class="columns is-centered">
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">Input</h4>
+          <div class="video-container"><img src="static/videos/childrun_input.gif" alt="Input" style="width: 100%; display: block;"></div>
+        </div>
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">TAV</h4>
+          <div class="video-container"><img src="static/videos/childrun_tav.gif" alt="TAV" style="width: 100%; display: block;"></div>
+        </div>
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">CAMEL</h4>
+          <div class="video-container"><img src="static/videos/childrun_camel.gif" alt="CAMEL" style="width: 100%; display: block;"></div>
+        </div>
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">SimDA</h4>
+          <div class="video-container"><img src="static/videos/childrun_simda.gif" alt="SimDA" style="width: 100%; display: block;"></div>
+        </div>
+      </div>
+      <!-- Row 2 -->
+      <div class="columns is-centered">
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">RAVE</h4>
+          <div class="video-container"><img src="static/videos/childrun_rave.gif" alt="RAVE" style="width: 100%; display: block;"></div>
+        </div>
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">CCEdit</h4>
+          <div class="video-container"><img src="static/videos/childrun_ccedit.gif" alt="CCEdit" style="width: 100%; display: block;"></div>
+        </div>
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2 has-text-info">DAPE (Ours)</h4>
+          <div class="video-container" style="border: 2px solid #3273dc;"><img src="static/videos/childrun_ours.gif" alt="Ours" style="width: 100%; display: block;"></div>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <!-- ================= Group 4 ================= -->
+    <div class="box">
+      <p class="has-text-centered mb-4">
+        <strong>Prompt:</strong> <span class="is-italic">"A young goat sits on a rock, grooming itself with its front paw, <span class="has-text-danger">in a hand-drawn watercolor painting style.</span>"</span>
+      </p>
+      <!-- Row 1 -->
+      <div class="columns is-centered">
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">Input</h4>
+          <div class="video-container"><img src="static/videos/goat_input.gif" alt="Input" style="width: 100%; display: block;"></div>
+        </div>
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">TAV</h4>
+          <div class="video-container"><img src="static/videos/goat_tav.gif" alt="TAV" style="width: 100%; display: block;"></div>
+        </div>
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">CAMEL</h4>
+          <div class="video-container"><img src="static/videos/goat_camel.gif" alt="CAMEL" style="width: 100%; display: block;"></div>
+        </div>
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">SimDA</h4>
+          <div class="video-container"><img src="static/videos/goat_simda.gif" alt="SimDA" style="width: 100%; display: block;"></div>
+        </div>
+      </div>
+      <!-- Row 2 -->
+      <div class="columns is-centered">
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">RAVE</h4>
+          <div class="video-container"><img src="static/videos/goat_rave.gif" alt="RAVE" style="width: 100%; display: block;"></div>
+        </div>
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2">CCEdit</h4>
+          <div class="video-container"><img src="static/videos/goat_ccedit.gif" alt="CCEdit" style="width: 100%; display: block;"></div>
+        </div>
+        <div class="column is-3">
+          <h4 class="title is-7 has-text-centered mb-2 has-text-info">DAPE (Ours)</h4>
+          <div class="video-container" style="border: 2px solid #3273dc;"><img src="static/videos/goat_ours.gif" alt="Ours" style="width: 100%; display: block;"></div>
         </div>
       </div>
     </div>
@@ -391,7 +463,7 @@
 <!-- ================ DAPE Benchmark ================= -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">The DAPE Benchmark</h2>
+    <h2 class="title is-3 has-text-centered">DAPE Benchmark</h2>
     <div class="has-text-centered mt-4 mb-4">
       <!-- Save your Figure 4 as dataset.png in static/images/ -->
       <img src="static/images/dataset.png" alt="DAPE Benchmark Statistics" style="max-width: 90%; border-radius: 8px;">
